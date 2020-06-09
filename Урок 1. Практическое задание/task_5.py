@@ -11,26 +11,16 @@
 В обоих случаях он 24, но никак не -24
 """
 
-
-def print_result_dif(letter_a, letter_b):
-    """Выводит количество букв между введенными буквами"""
-    print(f'Букв между: {abs(ord(letter_a) - ord(letter_b)) - 1 if letter_a != letter_b else 0}')
-
-
-def print_letter_num(letter_a, letter_b, start):
-    """Выводит положение каждой буквы в алфавите"""
-    print(f'Первая буква стоит на месте {ord(letter_a) - start + 1}')
-    print(f'Вторая буква стоит на месте {ord(letter_b) - start + 1}')
-
-
 first_letter = input('Введите первую букву: ')
 second_letter = input('Введите вторую букву: ')
 
 if ord(first_letter) > 1000 and ord(second_letter) > 1000:
-    print_result_dif(first_letter, second_letter)
-    print_letter_num(first_letter, second_letter, 1072)
+    print(f'Букв между: {abs(ord(first_letter) - ord(second_letter)) - 1 if first_letter != second_letter else 0}')
+    print(f'Первая буква стоит на месте {ord(first_letter) - 1072 + 1}')
+    print(f'Вторая буква стоит на месте {ord(second_letter) - 1072 + 1}')
 elif ord(first_letter) < 123 and ord(second_letter) < 123:
-    print_result_dif(first_letter, second_letter)
-    print_letter_num(first_letter, second_letter, 97)
+    print(f'Букв между: {abs(ord(first_letter) - ord(second_letter)) - 1 if first_letter != second_letter else 0}')
+    print(f'Первая буква стоит на месте {ord(first_letter) - 97 + 1}')
+    print(f'Вторая буква стоит на месте {ord(second_letter) - 97 + 1}')
 else:  # не учитывал язки, отличные от en, ru
     print('Вы ввели буквы из рвзных языков')
