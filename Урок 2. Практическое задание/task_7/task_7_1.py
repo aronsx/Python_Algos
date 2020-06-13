@@ -5,3 +5,10 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+N = int(input('Введите число N: '))
+SUMM = 0
+
+for num in range(N):
+    SUMM += num + 1
+print(SUMM == N * (N + 1) / 2)
