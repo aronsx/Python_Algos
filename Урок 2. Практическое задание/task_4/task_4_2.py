@@ -10,19 +10,12 @@
 """
 
 N = int(input('Введите n: '))
-Q = -0.5
-START = 1
-SUMM = 0
 
 
-def sequence(num):
-    global START, SUMM
+def sequence(num, start=1):
     if not num:
-        print(SUMM)
-        return
-    SUMM += START
-    START *= Q
-    sequence(num - 1)
+        return 0
+    return start + sequence(num-1, start/-2)
 
 
-sequence(N)
+print(sequence(N))
