@@ -16,7 +16,7 @@ SUMM = 0
 
 while N:
     N -= 1
-    SUMM = SUMM + START
-    START = START * Q
+    SUMM += START
+    START *= Q
 
 print(SUMM)
