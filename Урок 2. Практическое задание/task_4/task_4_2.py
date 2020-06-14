@@ -8,3 +8,21 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+N = int(input('Введите n: '))
+Q = -0.5
+START = 1
+SUMM = 0
+
+
+def sequence(num):
+    global START, SUMM
+    if not num:
+        print(SUMM)
+        return
+    SUMM += START
+    START *= Q
+    sequence(num - 1)
+
+
+sequence(N)
