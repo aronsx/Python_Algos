@@ -10,6 +10,6 @@
 Пример:
 Исходный массив: [8, 3, 15, 6, 4, 2], результат: [0, 3, 4, 5]
 """
-string = [8, 3, 15, 6, 4, 2]
+list_a = [8, 3, 15, 6, 4, 2]
 
-print([idx for idx in range(len(string)) if string[idx] % 2 == 0])
+print([idx for idx in range(len(list_a)) if list_a[idx] % 2 == 0])
