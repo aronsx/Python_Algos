@@ -11,3 +11,14 @@
 6 позиции, а минимальное число  -49 стоит на    0 позиции
 [-49, 26, 41, 75, 23, 52, 88, 60, 69, -18]
 """
+list_a = [88, 26, 41, 75, 23, 52, -49, 60, 69, -18]
+min_num, max_num = 0, 0
+
+for idx in range(len(list_a)):
+    if list_a[idx] > list_a[max_num]:
+        max_num = idx
+    if list_a[idx] < list_a[min_num]:
+        min_num = idx
+
+list_a[min_num], list_a[max_num] = list_a[max_num], list_a[min_num]
+print(list_a)
