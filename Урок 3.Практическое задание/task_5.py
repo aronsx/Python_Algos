@@ -16,4 +16,5 @@ for val in list_a:
     if val < 0:
         if val > MAX_NEGATIVE:
             MAX_NEGATIVE = val
-print(MAX_NEGATIVE)
+print(f'Максимальный отрицательный элемент в данном массиве = {MAX_NEGATIVE}, '
+      f'его индекс {list_a.index(MAX_NEGATIVE)}')
