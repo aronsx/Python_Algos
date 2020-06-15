@@ -12,13 +12,13 @@
 [-49, 26, 41, 75, 23, 52, 88, 60, 69, -18]
 """
 list_a = [88, 26, 41, 75, 23, 52, -49, 60, 69, -18]
-min_num, max_num = 0, 0
+min_index, max_index = 0, 0
 
-for idx in range(len(list_a)):
-    if list_a[idx] > list_a[max_num]:
-        max_num = idx
-    if list_a[idx] < list_a[min_num]:
-        min_num = idx
+for num, val in enumerate(list_a):
+    if val > list_a[max_index]:
+        max_index = num
+    if val < list_a[min_index]:
+        min_index = num
 
-list_a[min_num], list_a[max_num] = list_a[max_num], list_a[min_num]
+list_a[min_index], list_a[max_index] = list_a[max_index], list_a[min_index]
 print(list_a)
