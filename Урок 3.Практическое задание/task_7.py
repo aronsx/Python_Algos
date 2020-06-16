@@ -7,3 +7,14 @@
 Наименьший элемент: -86, встречается в этом массиве 1 раз
 Второй наименьший элемент: -73
 """
+
+list_a = [28, -86, 44, -37, -7, -52, -19, -3, -15, -73]
+MIN_EL = 0
+MIN_EL2 = 0
+
+for elem in list_a:
+    if elem <= MIN_EL:
+        MIN_EL = elem
+    if MIN_EL < MIN_EL2:
+        MIN_EL, MIN_EL2 = MIN_EL2, MIN_EL
+print(MIN_EL, MIN_EL2)
