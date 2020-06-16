@@ -17,4 +17,14 @@ for elem in list_a:
         MIN_EL = elem
     if MIN_EL < MIN_EL2:
         MIN_EL, MIN_EL2 = MIN_EL2, MIN_EL
-print(MIN_EL, MIN_EL2)
+
+COUNT_MIN = 0
+for elem in list_a:
+    if elem == MIN_EL2:
+        COUNT_MIN += 1
+print(f'Исходный массив: {list_a}')
+if COUNT_MIN == 1:
+    print(f'Наименьший элемент: {MIN_EL2}, встречается в этом массиве {COUNT_MIN} раз')
+    print(f'Второй наименьший элемент: {MIN_EL}')
+else:
+    print(f'Наименьший элемент: {MIN_EL2}, встречается в этом массиве {COUNT_MIN} раз')
