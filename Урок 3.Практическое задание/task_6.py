@@ -23,14 +23,12 @@ for idx in list_a:
     if idx < MIN_NUM:
         MIN_NUM = idx
 
-MIN_INDEX = list_a.index(MIN_NUM)
-MAX_INDEX = list_a.index(MAX_NUM)
-list_b = list_a[MIN_INDEX + 1:MAX_INDEX] if list_a[MIN_INDEX:MAX_INDEX] \
-    else list_a[MAX_INDEX + 1:MIN_INDEX]
+MIN_IX = list_a.index(MIN_NUM)
+MAX_IX = list_a.index(MAX_NUM)
 
 SUM_INTERVAL = 0
 
-for item in list_b:
+for item in list_a[MIN_IX + 1:MAX_IX] if list_a[MIN_IX:MAX_IX] else list_a[MAX_IX + 1:MIN_IX]:
     SUM_INTERVAL += item
 
-print(SUM_INTERVAL)
+print(f'Сумма элементов между минимальным ({MAX_NUM})  и максимальным ({MIN_NUM}) элементами: {SUM_INTERVAL}')
