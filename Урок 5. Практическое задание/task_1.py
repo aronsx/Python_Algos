@@ -52,6 +52,7 @@ while AMOUNT_ORG:
 COMP_YEAR_GAIN = {}
 for elem in ORG:
     year_average = (elem.qrtr_1 + elem.qrtr_2 + elem.qrtr_3 + elem.qrtr_4) / 4
+    # year_average = (sum(elem[1:4])) / 4  # решил не использовать данный способ в целях обучения
     COMP_YEAR_GAIN.setdefault(elem.name, year_average)
 
 TOTAL_YEAR_GAIN = reduce(lambda a, b: a + b, (elem for elem in COMP_YEAR_GAIN.values())) / len(COMP_YEAR_GAIN)
