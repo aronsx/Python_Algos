@@ -10,20 +10,34 @@
 применив несколько коллекций из модуля collections
 Также попробуйте решить задачу вообще без collections и применить только ваши знания по ООП
 (в частности по перегрузке методов)
+
+Пример:
+Введите 1-е натуральное шестнадцатиричное число: A2
+Введите 2-е натуральное шестнадцатиричное число: C4F
+defaultdict(<class 'list'>, {'1-A2': ['A', '2'], '2-C4F': ['C', '4', 'F']})
+Сумма:  ['C', 'F', '1']
+Произведение:  ['7', 'C', '9', 'F', 'E']
 """
 
-from  collections import deque
-# try:
-#     number_1 = collections.deque(int(num, 16) for num in list(input('Введите первое число: ')))
-#     number_2 = collections.deque(int(num, 16) for num in list(input('Введите второе число: ')))
-#     print(number_1)
-#     print(number_2)
-# except ValueError as ve:
-#     print('Вы ввели не число: ', ve)
+import collections
+import functools
 
-test = deque('f123d')
-test2 = deque('234d')
-print(int(test))
-print(test)
-print(test2)
+
+def calc():
+    nums = collections.defaultdict(list)
+    for d in range(2):
+        n = input(f"Введите {d+1}-е натуральное шестнадцатиричное число: ")
+        nums[f"{d+1}-{n}"] = list(n)
+    print(nums)
+
+    summ = sum([int(''.join(i), 16) for i in nums.values()])
+    # '%X'	Число в шестнадцатеричной системе счисления (буквы в верхнем регистре)
+    print("Сумма: ", list('%X' % summ))
+
+    mult = functools.reduce(lambda a, b: a * b, [int(''.join(i), 16) for i in nums.values()])
+    print("Произведение: ", list('%X' % mult))
+
+
+calc()
+
 

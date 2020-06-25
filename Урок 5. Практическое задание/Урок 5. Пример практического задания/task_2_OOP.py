@@ -10,20 +10,29 @@
 применив несколько коллекций из модуля collections
 Также попробуйте решить задачу вообще без collections и применить только ваши знания по ООП
 (в частности по перегрузке методов)
+
+Пример:
+Введите первое шеснадцатиричное число: A2
+Введите второе шеснадцатиричное число: C4F
+Сумма чисел = ['c', 'f', '1']
+Произведение чисел = ['7', 'c', '9', 'f', 'e']
 """
 
-from  collections import deque
-# try:
-#     number_1 = collections.deque(int(num, 16) for num in list(input('Введите первое число: ')))
-#     number_2 = collections.deque(int(num, 16) for num in list(input('Введите второе число: ')))
-#     print(number_1)
-#     print(number_2)
-# except ValueError as ve:
-#     print('Вы ввели не число: ', ve)
+class HexOperation:
+    def __init__(self, num_first, num_second):
+        self.num_first = num_first
+        self.num_second = num_second
 
-test = deque('f123d')
-test2 = deque('234d')
-print(int(test))
-print(test)
-print(test2)
+    def __add__(self, other):
+        return list(hex(int(''.join(self.num_first), 16) + int(''.join(other.num_second), 16)))[2:]
 
+    def __mul__(self, other):
+        return list(hex(int(''.join(self.num_first), 16) * int(''.join(other.num_second), 16)))[2:]
+
+
+hex_num_first = list(input('Введите первое шеснадцатиричное число: '))
+hex_num_second = list(input('Введите второе шеснадцатиричное число: '))
+
+res_sum = HexOperation(hex_num_first, hex_num_second) + HexOperation(hex_num_first, hex_num_second)
+res_mul = HexOperation(hex_num_first, hex_num_second) * HexOperation(hex_num_first, hex_num_second)
+print(f'Сумма чисел = {res_sum}\nПроизведение чисел = {res_mul}')

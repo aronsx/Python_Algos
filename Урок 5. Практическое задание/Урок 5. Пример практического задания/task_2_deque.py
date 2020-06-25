@@ -10,20 +10,38 @@
 применив несколько коллекций из модуля collections
 Также попробуйте решить задачу вообще без collections и применить только ваши знания по ООП
 (в частности по перегрузке методов)
+
+Пример:
+Введите первое число: A2
+Введите второе число: C4F
+Сумма: deque(['C', 'F', '1'])
+Произведение: deque(['7', 'C', '9', 'F', 'E'])
 """
 
-from  collections import deque
-# try:
-#     number_1 = collections.deque(int(num, 16) for num in list(input('Введите первое число: ')))
-#     number_2 = collections.deque(int(num, 16) for num in list(input('Введите второе число: ')))
-#     print(number_1)
-#     print(number_2)
-# except ValueError as ve:
-#     print('Вы ввели не число: ', ve)
+from collections import deque
 
-test = deque('f123d')
-test2 = deque('234d')
-print(int(test))
-print(test)
-print(test2)
 
+def hex_sum(x, y):
+    x = "".join([i for i in x])
+    y = "".join([i for i in y])
+    s = hex((int(float.fromhex(x) + float.fromhex(y))))
+    s = deque(s[2::].upper())
+    print(f"Сумма: {s}")
+
+
+def hex_mul(x, y):
+    x = "".join([i for i in x])
+    y = "".join([i for i in y])
+    s = hex((int(float.fromhex(x) * float.fromhex(y))))
+    s = deque(s[2::].upper())
+    print(f"Произведение: {s}")
+
+
+try:
+    x = deque(input("Введите первое число: "))
+    y = deque(input("Введите второе число: "))
+
+    hex_sum(x, y)
+    hex_mul(x, y)
+except ValueError:
+    print("Вы вместо числа ввели строку (((. Исправьтесь")
