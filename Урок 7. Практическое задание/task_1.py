@@ -15,12 +15,15 @@ from timeit import timeit
 
 def bubble(lst):
     _list = lst[:]
+    # print(f'список до: {_list}')  # добавил для отображения списка до сортировки
     n = 1
     while n < len(_list):
         for idx in range(len(_list) - n):
             if _list[idx] < _list[idx + 1]:
                 _list[idx], _list[idx + 1] = _list[idx + 1], _list[idx]
         n += 1
+    # print(f'список после: {_list}')  # отображение списка после сортировки
+    # если раскомментировать принты - будет видно, что сортируется копися, а не исходный список
     return _list
 
 
@@ -42,6 +45,7 @@ def bubble_opt(lst):
 
 list_a = [randrange(-100, 100) for _ in range(1000)]
 print(list_a)  # исходный список
+print(bubble(list_a))  # результат работы первой функции
 print(bubble(list_a))  # результат работы первой функции
 print(bubble_opt(list_a))  # результат работы второй функции
 
